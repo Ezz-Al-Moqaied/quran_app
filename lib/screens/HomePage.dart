@@ -2,9 +2,8 @@ import 'package:arabic_numbers/arabic_numbers.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:quran_application/module/quran.dart';
-import 'package:quran_application/shared_preferences.dart';
-import 'apiFetch.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:quran_application/serives/shared_preferences.dart';
+import '../serives/apiFetch.dart';
 import 'package:quran/quran.dart' as Quran;
 
 class HomePage extends StatefulWidget {
@@ -49,27 +48,14 @@ class _HomePageState extends State<HomePage> {
             title: const Text("Quran"),
             toolbarHeight: 50,
             centerTitle: true,
-            leading: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    elevation: 0, backgroundColor: Colors.transparent),
-                onPressed: () {
-                  showSearch(
-                    context: context,
-                    delegate: SearchBar(),
-                  );
-                },
-                child: const Icon(Icons.search)),
             actions: [
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       elevation: 0, backgroundColor: Colors.transparent),
                   onPressed: () async {
-                    await SharedPreferencesHelper.setPageNumber(pageNumber)
-                        .then((value) {
-                      print(value);
-                    });
+                    await SharedPreferencesHelper.setPageNumber(pageNumber);
                   },
-                  child: const Icon(Icons.bookmark_add)),
+                  child: const Icon(Icons.bookmark_add_outlined)),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       elevation: 0, backgroundColor: Colors.transparent),
@@ -88,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                       ));
                     }
                   },
-                  child: const Icon(Icons.bookmark)),
+                  child: const Icon(Icons.bookmark_sharp)),
             ],
           ),
           body: PageView.builder(

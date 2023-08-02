@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran_application/HomePage.dart';
-import 'package:quran_application/shared_preferences.dart';
+import 'package:quran_application/screens/HomePage.dart';
+import 'package:quran_application/serives/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
